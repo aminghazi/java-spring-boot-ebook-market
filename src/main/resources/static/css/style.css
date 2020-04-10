@@ -1,0 +1,41 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.best-book {
+    margin-top: 30px;
+}
+
+.subject-home {
+    margin-bottom: 15px;
+}
+
+.subject-home span {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.best-book h4 {
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.best-book img {
+    height: 250px;
+}
+
+.navbar form {
+    margin-bottom: 0;
+    margin-left: 1rem;
+}
+
+.nav-link {
+    font-weight: 300;
+    font-size: 14px;
+}
