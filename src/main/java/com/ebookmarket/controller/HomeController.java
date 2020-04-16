@@ -1,8 +1,12 @@
 package com.ebookmarket.controller;
 
+import com.ebookmarket.domain.security.PasswordRestToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Locale;
 
 @Controller
 public class HomeController {
@@ -29,7 +33,11 @@ public class HomeController {
     }
 
     @RequestMapping("/forgetPassword")
-    public String forgetPassword(Model model) {
+    public String forgetPassword(
+            Locale locale,
+            @RequestParam("token") String token,
+            Model model) {
+        PasswordRestToken passwordRestToken = userService.getPasswordRestToken(token);
         model.addAttribute("classActiveForgetPassword", true);
         return "account";
     }
