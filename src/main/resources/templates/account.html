@@ -12,19 +12,19 @@
         </nav>
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#new-account" role="tab" aria-controls="pills-home" aria-selected="true">New Account</a>
+                <a th:classappend="${classActiveNewAccount}? 'active'" class="nav-link" id="pills-home-tab" data-toggle="pill" href="#new-account" role="tab" aria-controls="pills-home" aria-selected="true">New Account</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#login" role="tab" aria-controls="pills-profile" aria-selected="false">Login</a>
+                <a th:classappend="${classActiveLogin}? 'active'" class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#login" role="tab" aria-controls="pills-profile" aria-selected="false">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#forget-password" role="tab" aria-controls="pills-contact" aria-selected="false">Forget Password</a>
+                <a th:classappend="${classActiveForgetPassword}? 'active'" class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#forget-password" role="tab" aria-controls="pills-contact" aria-selected="false">Forget Password</a>
             </li>
         </ul>
         <div class="card">
             <div class="card-body">
                 <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="new-account" role="tabpanel" aria-labelledby="new-account-tab">
+                    <div th:classappend="${classActiveNewAccount}? 'show active'" class="tab-pane fade" id="new-account" role="tabpanel" aria-labelledby="new-account-tab">
                         <form>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Username</label>
@@ -39,7 +39,7 @@
                             <button type="submit" class="btn btn-success">Create new account</button>
                         </form>
                     </div>
-                    <div class="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab">
+                    <div th:classappend="${classActiveLogin}? 'show active'" class="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab">
                         <form>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
@@ -53,7 +53,7 @@
                             <button type="submit" class="btn btn-success">Login</button>
                         </form>
                     </div>
-                    <div class="tab-pane fade" id="forget-password" role="tabpanel" aria-labelledby="forget-password-tab">
+                    <div th:classappend="${classActiveForgetPassword}? 'show active'" class="tab-pane fade" id="forget-password" role="tabpanel" aria-labelledby="forget-password-tab">
                         <form>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
