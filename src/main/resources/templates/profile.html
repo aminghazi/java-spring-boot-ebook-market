@@ -1,0 +1,101 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"></head>
+<body>
+<div th:replace="common/header :: navbar"></div>
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="Account">Profile</li>
+        </ol>
+    </nav>
+    <h2 th:text="${#strings.toUpperCase{user.username}}"></h2>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+            <a th:classappend="${classActiveEdit}? 'active'" class="nav-link" id="pills-home-tab" data-toggle="pill" href="#new-account" role="tab" aria-controls="pills-home" aria-selected="true">Edit</a>
+        </li>
+        <li class="nav-item">
+            <a th:classappend="${classActiveOrders}? 'active'" class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#login" role="tab" aria-controls="pills-profile" aria-selected="false">Orders</a>
+        </li>
+        <li class="nav-item">
+            <a th:classappend="${classActiveBilling}? 'active'" class="nav-link" id="pills-billing-tab" data-toggle="pill" href="#biilling" role="tab" aria-controls="pills-billing" aria-selected="false">Billing</a>
+        </li
+        <li class="nav-item">
+            <a th:classappend="${classActiveShipping}? 'active'" class="nav-link" id="pills-shiipping-tab" data-toggle="pill" href="#shipping" role="tab" aria-controls="pills-shipping" aria-selected="false">Shipping</a>
+        </li>
+    </ul>
+    <div class="card">
+        <div class="card-body">
+            <div class="tab-content" id="pills-tabContent">
+                <div th:classappend="${classActiveEdit}? 'show active'" class="tab-pane fade" id="new-account" role="tabpanel" aria-labelledby="new-account-tab">
+                    <form th:action="@/updateUserInfo}" method="post">
+                        <input type="hidden" name="id" th:value="${user.id}">
+                        <div th:if="{updateUserInfo}">User Info Updated.</div>
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input th:value="${user.firstName}" type="text" class="form-control" id="firstName" aria-describedby="firstName" name="firstName" placeholder="User Name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">Last Name</label>
+                            <input th:value="${user.lastName}" type="text" class="form-control" id="lastName" aria-describedby="firstName" name="lastName" placeholder="Last Name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="userName">User Name</label>
+                            <input th:value="${user.userName}" type="text" class="form-control" id="userName" aria-describedby="userName" name="userName" placeholder="User Name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input th:value="${user.currentPassword}" type="password" class="form-control" id="currentPassword" aria-describedby="currentPassword" name="currentPassword" placeholder="Current Password" />
+                            <small id="currentPasswordhelp" class="form-text text-muted">Enter your current password to change email address or password.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input th:value="${user.email}" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp1" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">new Password</label>
+                            <input type="password" class="form-control" id="newPassword" aria-describedby="newPassword" name="newPassword" placeholder="New Password" />
+                            <small id="newPasswordhelp" class="form-text text-muted">Enter your New password</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" aria-describedby="confirmPassword" name="confirmPassword" placeholder="Confirm Password" />
+                            <small id="confirmPasswordhelp" class="form-text text-muted">To change the current user password, enter the new password in both fields.</small>
+                        </div>
+                        <button type="submit" class="btn btn-success">Create new account</button>
+                    </form>
+                </div>
+                <div th:classappend="${classActiveLogin}? 'show active'" class="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-success">Login</button>
+                    </form>
+                </div>
+                <div th:classappend="${classActiveForgetPassword}? 'show active'" class="tab-pane fade" id="forget-password" role="tabpanel" aria-labelledby="forget-password-tab">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp3" class="form-text text-muted">Enter your registered email address here.</small>
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="common/header :: scripts"></div>
+</body>
+</html>
