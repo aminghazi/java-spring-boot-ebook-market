@@ -7,4 +7,8 @@ public interface UserService {
     PasswordRestToken getPasswordRestToken(final String token);
 
     void createPasswordResetTokenForUser(final User user, final String token);
+
+    User findByUsername(String username);
+
+    User findByEmail(String email);
 }

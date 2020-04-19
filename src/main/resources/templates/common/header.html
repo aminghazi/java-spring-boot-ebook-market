@@ -1,4 +1,4 @@
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:fragment="common-header">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -46,10 +46,13 @@
                         <a class="nav-link" href="#">Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a th:href="@{/login}" class="nav-link">Account</a>
+                        <a sec:authorize="isAnonymous()" th:href="@{/login}" class="nav-link">Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
+                        <a sec:authorize="isAuthenticated()" th:href="@{/profile}" class="nav-link">Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a sec:authorize="isAuthenticated()" th:href="@{/logout}" class="nav-link" href="#">Logout</a>
                     </li>
                 </ul>
                 <form class="form-inline">
