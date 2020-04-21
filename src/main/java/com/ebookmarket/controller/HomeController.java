@@ -6,6 +6,7 @@ import com.ebookmarket.domain.security.Role;
 import com.ebookmarket.domain.security.UserRole;
 import com.ebookmarket.service.UserService;
 import com.ebookmarket.service.impl.UserSecurityService;
+import com.ebookmarket.utility.MailConstractor;
 import com.ebookmarket.utility.SecurityUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
