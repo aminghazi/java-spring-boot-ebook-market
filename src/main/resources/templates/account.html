@@ -25,7 +25,10 @@
             <div class="card-body">
                 <div class="tab-content" id="pills-tabContent">
                     <div th:classappend="${classActiveNewAccount}? 'show active'" class="tab-pane fade" id="new-account" role="tabpanel" aria-labelledby="new-account-tab">
-                        <form>
+                        <div class="alert alert-primary" role="alert" th:if="${emailSent}">
+                            An email has been sent to email...
+                        </div>
+                        <form th:actioin="@{/newUser}" method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Username</label>
                                 <input type="text" class="form-control" id="exampleInputUsername" aria-describedby="userNameHelp" placeholder="User Name">
